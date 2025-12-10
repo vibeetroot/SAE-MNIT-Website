@@ -1,0 +1,135 @@
+/* styles.css - upgraded visuals, neon streaks, better gradients, responsive */
+:root{
+  --bg:#07121a;
+  --panel:#07151e;
+  --accent:#00e2ff;
+  --gold:#f5d66b;
+  --red:#f55f6c;
+  --muted:#9fb0bd;
+}
+
+/* base reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  background: linear-gradient(180deg,#07121a 0%, #031219 100%);
+  color:#dbeaf0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-y:scroll;
+}
+body.smooth {scroll-behavior:smooth}
+.container{max-width:1400px;margin:0 auto;padding:0 28px}
+
+/* header */
+.site-header{
+  position:sticky; top:0; z-index:60; backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(2,8,13,0.55), rgba(2,8,13,0.35));
+}
+.site-header.small {padding:12px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{font-weight:900;font-family:"Montserrat",sans-serif}
+.logo .saeblue{color:var(--accent);letter-spacing:0.5px}
+.logo .mnit{color:#cbd6df;margin-left:8px}
+.nav a{color:#b9ced6;text-decoration:none;margin-left:22px;font-weight:500;letter-spacing:1px}
+.nav .divider{color:#2a3b43;margin-left:12px}
+.nav .link-gold{color:var(--gold);font-weight:700}
+.nav .link-red{color:var(--red);font-weight:700}
+
+/* fader */
+.page-fader{position:fixed;inset:0;background:#041018;opacity:0;pointer-events:none;z-index:999;transition:all .45s ease}
+
+/* hero */
+.fullwidth-hero{position:relative; min-height:72vh; display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.neon-streaks{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(120deg, rgba(0,226,255,0.02) 10%, rgba(0,226,255,0.01) 25%, rgba(255,100,120,0.01) 50%, transparent 70%);mix-blend-mode:screen;opacity:0.9;animation:streaks 18s linear infinite;}
+@keyframes streaks{from{background-position:0 0} to{background-position:400px 0}}
+
+/* hero gears */
+.hero-gear{position:absolute;width:52vmin;max-width:760px;opacity:.95;filter:drop-shadow(0 30px 50px rgba(0,0,0,0.6));transform-origin:center center}
+.gear-left{left:-12vw;top:4vh}
+.gear-right{right:-6vw;top:8vh}
+
+.hero-content{position:relative;z-index:5;text-align:center;padding:64px 20px}
+.hero-title{font-family:"Montserrat",sans-serif;font-size:5rem;margin:0;color:transparent;letter-spacing:6px;background:linear-gradient(90deg,var(--accent),#8ce7ff);-webkit-background-clip:text}
+.hero-sub{margin-top:8px;color:var(--muted);font-weight:500}
+.cta-row{margin-top:28px;display:flex;gap:18px;justify-content:center}
+.btn{padding:14px 26px;border-radius:10px;text-decoration:none;font-weight:700}
+.btn-primary{background:transparent;border:2px solid rgba(0,226,255,0.12);color:var(--accent);box-shadow:0 8px 40px rgba(0,226,255,0.05)}
+.btn-outline{background:linear-gradient(180deg,#0b1e27,#071319);border:1px solid rgba(255,255,255,0.04);color:#fff}
+
+/* sections */
+.section{padding:72px 0}
+.eyebrow{color:var(--accent);letter-spacing:4px;font-size:0.85rem;margin-bottom:8px}
+.big{font-family:"Montserrat";font-size:3.2rem;margin:6px 0}
+.center{text-align:center}
+.underline.neon{height:6px;width:84px;border-radius:6px;margin:14px auto;background:linear-gradient(90deg,var(--accent),#69f3ff)}
+
+/* about */
+.two-col{display:flex;gap:36px;align-items:center;padding:12px}
+.about-card{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:34px;border-radius:14px;box-shadow:0 6px 26px rgba(0,0,0,0.55)}
+.gear-watermark{flex:0 0 420px;display:flex;align-items:center;justify-content:center;opacity:.16}
+
+/* vision */
+.cards-row{display:flex;gap:22px;justify-content:center;margin-top:36px}
+.feature-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;width:310px;text-align:left}
+.icon-box{width:46px;height:46px;border-radius:10px;background:rgba(0,226,255,0.06);display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:20px}
+
+/* teams */
+.teams-row{display:flex;gap:28px;justify-content:center;margin-top:34px}
+.team-card{flex:0 0 420px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:26px;border-radius:14px;position:relative;cursor:pointer;overflow:hidden;border:1px solid rgba(255,255,255,0.03);transition:transform .35s ease, box-shadow .35s ease}
+.team-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+.team-gear{position:absolute;right:18px;top:-6px;opacity:.35;width:40%}
+.team-pill{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:20px;font-size:.78rem}
+.team-title{font-family:"Montserrat";font-size:2.4rem;margin:10px 0}
+.team-cta{color:var(--muted);margin-top:16px;font-weight:600}
+.team-gold .team-cta{color:var(--gold)}
+.team-red .team-cta{color:var(--red)}
+
+/* team hero variations */
+.team-hero{min-height:56vh;display:flex;align-items:center;justify-content:center;position:relative}
+.tvaran-hero{background:linear-gradient(180deg,#07121a 0%, #071216 50%);background-image: radial-gradient(circle at 50% 40%, rgba(245,214,107,0.04), transparent 6%);}
+.raven-hero{background:linear-gradient(180deg,#07121a 0%, #031116 50%);background-image: radial-gradient(circle at 75% 40%, rgba(245,95,108,0.04), transparent 6%);}
+.team-title-hero{font-family:"Montserrat";font-size:5.6rem;margin:0}
+.hero-sub{letter-spacing:6px}
+
+/* golden underline / progress */
+.hero-progress{position:absolute;left:0;right:0;bottom:0;height:18px;display:flex;align-items:center;justify-content:center}
+.progress-track{width:90%;height:8px;background:#061418;border-radius:6px;position:relative;overflow:hidden;border-top:2px solid rgba(255,255,255,0.02)}
+.progress-fill{position:absolute;left:0;top:0;height:100%;width:28%;background:linear-gradient(90deg,#f5d66b,#e6c25a);box-shadow:0 6px 18px rgba(245,214,107,0.12);transform-origin:left;animation:progress-move 3s ease-in-out infinite alternate}
+@keyframes progress-move{from{transform:translateX(0)} to{transform:translateX(66%)}}
+
+/* mission + timeline */
+.mission-quote{font-size:1.35rem;color:var(--gold);text-align:center;margin:28px 0}
+.gold-quote{color:var(--gold)}
+.three-cards{display:flex;gap:18px;justify-content:center;margin-top:22px}
+.mini-card{background:rgba(255,255,255,0.02);padding:22px;border-radius:10px;min-width:220px;text-align:center}
+.red-card{background:linear-gradient(180deg, rgba(245,95,108,0.04), rgba(245,95,108,0.02))}
+
+.timeline{margin-top:28px}
+.timeline-item{display:flex;align-items:flex-start;gap:18px;margin-bottom:22px}
+.dot{width:18px;height:18px;border-radius:50%;box-shadow:0 0 18px rgba(0,0,0,0.8)}
+.gold-dot{background:linear-gradient(90deg,var(--gold),#f1e3a6)}
+.timeline-card{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;flex:1}
+
+/* members */
+.members-grid{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.member-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:10px;width:220px;text-align:left}
+.avatar{height:140px;border-radius:8px;background:#0a1620;margin-bottom:12px;display:flex;align-items:center;justify-content:center;font-size:34px}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-title{font-size:3.2rem}
+  .big{font-size:2rem}
+  .teams-row{flex-direction:column;align-items:center}
+  .feature-card{width:100%}
+  .header-inner{padding:14px 0}
+  .hero-gear{display:none}
+  .member-card{width:46%}
+}
+@media (max-width:480px){
+  .member-card{width:100%}
+}
